@@ -1,0 +1,11 @@
+plugins {
+    id 'java-lirary'
+}
+
+repositories{
+    mavenCentral()
+}
+
+dependencies{
+    testimplementation()
+}
