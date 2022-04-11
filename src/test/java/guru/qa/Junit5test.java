@@ -1,10 +1,8 @@
 package guru.qa;
 
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.*;
 
-public class simpletest {
+public class Junit5test {
 
     @BeforeAll
      static  void  initDB () {
