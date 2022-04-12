@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -21,19 +22,19 @@ public class CssXpathExamples {
 
 
     @Test
-    //void CssXpathExamples() {
-    void fillFormTest(){
+    //void parameters() {
+    void parameters(){
 
 
         open("/automation-practice-form");
 
-        $("[id=userName]").setValue("Dron");
+        $("[id=firstName]").setValue("Dron");
         $("[id=lastName]").setValue("storm");
         $("[id=userEmail]").setValue("dron@storm.com");
         $("[class=custom-control-label]").click();
-        $("[class=mr-sm-2 form-control]").setValue("896721888");
-        $("[id=dateOfBirthInput]").selectOption("Apr");
-        $("[id=subjectsWrapper]").setValue("Maths");
+        $("[id=userNumber]").setValue("896721888");
+        $(".react-datepicker__month-select").selectOption("July");
+        $("[class=mt-2 row]").setValue("Maths");
         $("[class=custom-control custom-checkbox custom-control-inline]").click();
         $("[id=uploadPicture]").click();
         $("[id=currentAddress-label]").setValue("Hallo");
