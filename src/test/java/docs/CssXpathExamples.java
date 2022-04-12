@@ -24,7 +24,8 @@ public class CssXpathExamples {
     @Test
     //void parameters() {
     void parameters(){
-
+String foto = "lesson_3.jpg"
+        open("/automation-practice-form")
 
         open("/automation-practice-form");
 
@@ -33,7 +34,7 @@ public class CssXpathExamples {
         $("[id=userEmail]").setValue("dron@storm.com");
         $("[class=custom-control-label]").click();
         $("[id=userNumber]").setValue("896721888");
-        $(".react-datepicker__month-select").selectOption("July");
+        $("[aria-label$='July 27th, 1989']").click();
         $("[class=mt-2 row]").setValue("Maths");
         $("[class=custom-control custom-checkbox custom-control-inline]").click();
         $("[id=uploadPicture]").click();
