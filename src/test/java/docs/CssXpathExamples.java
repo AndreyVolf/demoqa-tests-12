@@ -10,22 +10,21 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 
-
-
 public class CssXpathExamples {
     @BeforeAll
-    static  void  setUP() {
-        Configuration.holdBrowserOpen = true;
+    static  void   BeforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
+        Configuration.browserSize = "1600x900";
+        Configuration.holdBrowserOpen = true;
     }
 
 
     @Test
     //void parameters() {
     void parameters(){
-String foto = "lesson_3.jpg"
-        open("/automation-practice-form")
+        String foto = "Lesson_2.JPG";
+
+        open("/automation-practice-form");
 
         open("/automation-practice-form");
 
@@ -34,19 +33,26 @@ String foto = "lesson_3.jpg"
         $("[id=userEmail]").setValue("dron@storm.com");
         $("[class=custom-control-label]").click();
         $("[id=userNumber]").setValue("896721888");
-        $("[aria-label$='July 27th, 1989']").click();
-        $("[class=mt-2 row]").setValue("Maths");
-        $("[class=custom-control custom-checkbox custom-control-inline]").click();
-        $("[id=uploadPicture]").click();
-        $("[id=currentAddress-label]").setValue("Hallo");
-        $("[class=css-1g6gooi]").setValue("NCR");
-        $("[css-1uccc91-singleValue]").setValue("Delhi");
+        $("[id=dateOfBirthInput]").click(); // Ввод даты рождения
+        $(".react-datepicker__month-select").selectOption("October"); //Выбор месяца
+        $(".react-datepicker__year-select").selectOption("1993"); //Выбор года
+        $("[aria-label$='October 27th, 1993']").click();
+        $("[id=subjectsInput]").setValue("Maths").pressEnter();
+        $(byText("Sports")).click();
+        $("[id=uploadPicture]").uploadFromClasspath(foto); //Выбор картинки
+        $("[id=currentAddress]").setValue("Stalin street 37"); //Ввод улицы
+        $("[id=state]").click(); // Выбор государства
+        $(byText("NCR")).click();
+        $("[id=city]").click(); // Выбор города
+        $(byText("Delhi")).click();
+        $("[id=submit]").click(); //Подтверждение регистрации
 
 
-        $("[id=output]").shouldHave(text("Dron"),text("storm"), text("dron@storm.com"), text("896721888"),
-                text("Maths"),text("Hallo"),text("NCR"),text("Delhi"));
+      //  $("[id=output]"
+                $(".table-responsive").shouldHave(text("Dron"),text("storm"), text("dron@storm.com"), text("896721888"),
+                text("Maths"),text("Stalin street 37"),text("NCR"),text("Delhi"));
 
-
+        $("#closeLargeModal").click();
 
 
     }
