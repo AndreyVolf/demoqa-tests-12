@@ -8,9 +8,18 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static java.lang.String.format;
 
 
-public class CssXpathExamples {
+public class CssXpathcTestxamples1 {
+
+    String firstName = "Dron",
+            lastName = "storm",
+            email = "dron@storm.com";
+
+    String expectedFullName = format ("%s %s", firstName, lastName);
+
+
     @BeforeAll
     static  void   BeforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
@@ -28,9 +37,9 @@ public class CssXpathExamples {
 
         open("/automation-practice-form");
 
-        $("[id=firstName]").setValue("Dron");
+        $("[id=firstName]").setValue("firstName");
         $("[id=lastName]").setValue("storm");
-        $("[id=userEmail]").setValue("dron@storm.com");
+        $("[id=userEmail]").setValue("email");
         $("[class=custom-control-label]").click();
         $("[id=userNumber]").setValue("896721888");
         $("[id=dateOfBirthInput]").click(); // Ввод даты рождения
@@ -49,7 +58,7 @@ public class CssXpathExamples {
 
 
       //  $("[id=output]"
-                $(".table-responsive").shouldHave(text("Dron"),text("storm"), text("dron@storm.com"), text("896721888"),
+                $(".table-responsive").shouldHave(text("firstName"),text("lastNAme"), text("email"), text("896721888"),
                 text("Maths"),text("Stalin street 37"),text("NCR"),text("Delhi"));
 
         $("#closeLargeModal").click();
